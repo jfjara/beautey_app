@@ -4,5 +4,5 @@ import com.jfjara.beautyapp.beautyApp.domain.model.Service;
 
 public interface AddService {
 
-    Service execute(final Service service);
+    void execute(final Service service);
 }

@@ -48,27 +48,26 @@ public class UseCaseConfig {
     }
 
     @Bean
-    public FindServiceById findServiceById(final ServiceRepository serviceRepository) {
+    public FindServiceById findServiceById(
+            @Qualifier(DatabaseBeanNameConstant.DATABASE_SERVICE_REPOSITORY) final ServiceRepository serviceRepository) {
         return new FindServiceByIdUseCase(serviceRepository);
     }
 
     @Bean
-    public FindAllServices findAllServices(final ServiceRepository serviceRepository) {
+    public FindAllServices findAllServices(
+            @Qualifier(DatabaseBeanNameConstant.DATABASE_SERVICE_REPOSITORY) final ServiceRepository serviceRepository) {
         return new FindAllServicesUseCase(serviceRepository);
     }
 
     @Bean
-    public AddService addService(final ServiceRepository serviceRepository) {
+    public AddService addService(
+            @Qualifier(DatabaseBeanNameConstant.DATABASE_SERVICE_REPOSITORY) final ServiceRepository serviceRepository) {
         return new AddServiceUseCase(serviceRepository);
     }
 
     @Bean
-    public DeleteService deleteService(final ServiceRepository serviceRepository) {
-        return new DeleteServiceUseCase(serviceRepository);
-    }
-
-    @Bean
-    public UpdateService updateService(final ServiceRepository serviceRepository) {
+    public UpdateService updateService(
+            @Qualifier(DatabaseBeanNameConstant.DATABASE_SERVICE_REPOSITORY) final ServiceRepository serviceRepository) {
         return new UpdateServiceUseCase(serviceRepository);
     }
 

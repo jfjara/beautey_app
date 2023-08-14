@@ -3,15 +3,15 @@ package com.jfjara.beautyapp.beautyApp.domain.port.repository;
 import com.jfjara.beautyapp.beautyApp.domain.model.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ServiceRepository {
 
-    Service findById(final Long id);
-    List<Service> findAll();
+    Optional<Service> findById(final Long id);
+    Optional<List<Service>> findAll();
 
-    Service add(final Service service);
+    void add(final Service service);
 
-    Service update(final Service service);
+    Optional<Service> update(final Service service);
 
-    void delete(final Long id);
 }

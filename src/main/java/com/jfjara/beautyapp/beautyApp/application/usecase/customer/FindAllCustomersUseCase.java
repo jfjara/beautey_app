@@ -5,11 +5,9 @@ import com.jfjara.beautyapp.beautyApp.domain.model.exception.CustomerNotFoundExc
 import com.jfjara.beautyapp.beautyApp.domain.port.repository.CustomerRepository;
 import com.jfjara.beautyapp.beautyApp.domain.port.usecase.customer.FindAllCustomers;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-@Slf4j
 @RequiredArgsConstructor
 public class FindAllCustomersUseCase implements FindAllCustomers {
 
@@ -17,7 +15,6 @@ public class FindAllCustomersUseCase implements FindAllCustomers {
 
     @Override
     public List<Customer> execute() throws CustomerNotFoundException {
-        log.debug(":: Find all customers :: ");
         return customerRepository.findAll()
                 .orElseThrow(() -> CustomerNotFoundException.builder().message("No customers found").build());
     }

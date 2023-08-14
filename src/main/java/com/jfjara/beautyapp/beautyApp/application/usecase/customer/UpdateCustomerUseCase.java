@@ -5,9 +5,7 @@ import com.jfjara.beautyapp.beautyApp.domain.model.exception.CustomerNotFoundExc
 import com.jfjara.beautyapp.beautyApp.domain.port.repository.CustomerRepository;
 import com.jfjara.beautyapp.beautyApp.domain.port.usecase.customer.UpdateCustomer;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @RequiredArgsConstructor
 public class UpdateCustomerUseCase implements UpdateCustomer {
 
@@ -16,7 +14,6 @@ public class UpdateCustomerUseCase implements UpdateCustomer {
 
     @Override
     public Customer execute(final Customer customer) throws CustomerNotFoundException {
-        log.debug(":: Update customer {} ::", customer);
         return customerRepository.update(customer)
                 .orElseThrow(() -> CustomerNotFoundException.builder().message("No customer found").build());
     }
